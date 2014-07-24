@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-    // 1. All configuration goes here 
+// 1. All configuration goes here 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -31,11 +31,10 @@ uncss: {
      grunt.loadNpmTasks('grunt-uncss');
 
  // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-
      grunt.registerTask('load_sitemap_json', function() {
-var sitemap_urls = grunt.file.readJSON('./sitemap.json');
-grunt.config.set('uncss.dist.options.urls', sitemap_urls);
-});
+     var sitemap_urls = grunt.file.readJSON('./sitemap.json');
+     grunt.config.set('uncss.dist.options.urls', sitemap_urls);
+  });
 
 grunt.registerTask('deploy', ['exec:get_grunt_sitemap','load_sitemap_json','uncss:dist']);  
 };
